@@ -1,3 +1,4 @@
+// A chave é rejeitada antes do JSON; a compra não consulta vaga fora da transação.
 import type { FastifyInstance } from 'fastify'
 import { listEventsOnSale } from '../events/service.js'
 import { purchaseTicket } from '../tickets/purchase.js'

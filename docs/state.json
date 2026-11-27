@@ -4,38 +4,38 @@
     "F01": {
       "name": "Identidade e acesso",
       "wave": 1,
-      "status": "implementada",
-      "report": null
+      "status": "concluida",
+      "report": "docs/features/F01-identidade/reports/2026-11-27T1837.md"
     },
     "F02": {
       "name": "Eventos",
       "wave": 2,
-      "status": "implementada",
-      "report": null
+      "status": "concluida",
+      "report": "docs/features/F02-eventos/reports/2026-11-27T1837.md"
     },
     "F03": {
       "name": "Ingressos, vagas e gateway",
       "wave": 3,
-      "status": "implementada",
-      "report": null
+      "status": "concluida",
+      "report": "docs/features/F03-ingressos/reports/2026-11-27T1837.md"
     },
     "F04": {
       "name": "API de parceiros",
       "wave": 4,
-      "status": "spec",
-      "report": null
+      "status": "concluida",
+      "report": "docs/features/F04-parceiros/reports/2026-11-27T1837.md"
     },
     "F05": {
       "name": "Vitrine e meus ingressos",
       "wave": 4,
-      "status": "spec",
-      "report": null
+      "status": "concluida",
+      "report": "docs/features/F05-vitrine/reports/2026-11-27T1837.md"
     },
     "F06": {
       "name": "Gestão do organizador",
       "wave": 4,
-      "status": "spec",
-      "report": null
+      "status": "concluida",
+      "report": "docs/features/F06-gestao/reports/2026-11-27T1837.md"
     }
   }
 }

@@ -319,11 +319,11 @@ describe('F03 ingressos', () => {
     await processDueTickets()
 
     const organizerId = SEED.organizerA.id
-    expect((await checkIn(organizerId, eventId, 'ZZZZZZZZ')).message).toBe(CHECKIN.invalid)
-    expect((await checkIn(organizerId, eventId, other.ticket.code)).message).toBe(CHECKIN.invalid)
-    expect((await checkIn(organizerId, eventId, pending.ticket.code)).message).toBe(CHECKIN.unconfirmed)
-    expect((await checkIn(organizerId, eventId, confirmed.ticket.code)).message).toBe(CHECKIN.released)
-    expect((await checkIn(organizerId, eventId, confirmed.ticket.code)).message).toBe(CHECKIN.used)
+    expect(await checkinMessage(organizerId, eventId, 'ZZZZZZZZ')).toBe(CHECKIN.invalid)
+    expect(await checkinMessage(organizerId, eventId, other.ticket.code)).toBe(CHECKIN.invalid)
+    expect(await checkinMessage(organizerId, eventId, pending.ticket.code)).toBe(CHECKIN.unconfirmed)
+    expect(await checkinMessage(organizerId, eventId, confirmed.ticket.code)).toBe(CHECKIN.released)
+    expect(await checkinMessage(organizerId, eventId, confirmed.ticket.code)).toBe(CHECKIN.used)
     expect((await getDashboard(eventId))?.checkins).toBe(1)
     expect((await getDashboard(eventId))?.confirmed).toBe(1)
 
@@ -331,8 +331,8 @@ describe('F03 ingressos', () => {
     expect((await getTicketById(confirmed.ticket.id))?.checkedIn).toBe(true)
 
     await cancelPublishedEvent(organizerId, eventId)
-    expect((await checkIn(organizerId, eventId, confirmed.ticket.code)).message).toBe(CHECKIN.cancelled)
-    expect((await checkIn(organizerId, eventId, 'ZZZZZZZZ')).message).toBe(CHECKIN.invalid)
+    expect(await checkinMessage(organizerId, eventId, confirmed.ticket.code)).toBe(CHECKIN.cancelled)
+    expect(await checkinMessage(organizerId, eventId, 'ZZZZZZZZ')).toBe(CHECKIN.invalid)
   })
 
   test('painel bate com os ingressos (R12)', async () => {
@@ -406,6 +406,12 @@ describe('F03 ingressos', () => {
     20_000,
   )
 })
+
+async function checkinMessage(organizerId: string, eventId: string, code: string) {
+  const result = await checkIn(organizerId, eventId, code)
+  if (!result.ok) throw new Error(result.error)
+  return result.message
+}
 
 async function mustBuy(eventId: string, cardNumber: string, buyerEmail: string): Promise<string> {
   const bought = await purchaseTicket({

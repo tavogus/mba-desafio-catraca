@@ -2,6 +2,7 @@ import cookie from '@fastify/cookie'
 import formbody from '@fastify/formbody'
 import Fastify, { type FastifyInstance } from 'fastify'
 import { registerAuthRoutes } from './auth/routes.js'
+import { partnerKeyIsValid } from './auth/session.js'
 import { cookieSecret } from './config.js'
 import { getPool } from './db.js'
 import { registerEventRoutes } from './events/routes.js'
@@ -16,6 +17,16 @@ export async function buildApp(): Promise<FastifyInstance> {
   const app = Fastify({ logger: false })
   await app.register(cookie, { secret: cookieSecret() })
   await app.register(formbody)
+
+  app.addHook('onRequest', async (req, reply) => {
+    const path = req.url.split('?')[0] ?? ''
+    if (!path.startsWith('/api/partner')) return
+    const header = req.headers['x-api-key']
+    const key = Array.isArray(header) ? header[0] : header
+    if (!key || !(await partnerKeyIsValid(key))) {
+      return reply.code(401).header('cache-control', 'no-store').send({ error: 'unauthorized' })
+    }
+  })
 
   app.get('/health', async () => {
     await getPool().query('SELECT 1')

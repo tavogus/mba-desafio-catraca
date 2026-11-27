@@ -1,0 +1,41 @@
+{
+  "legend": "status: spec, implementada ou concluida. report é o caminho do relatório mais recente, ou null.",
+  "features": {
+    "F01": {
+      "name": "Identidade e acesso",
+      "wave": 1,
+      "status": "implementada",
+      "report": null
+    },
+    "F02": {
+      "name": "Eventos",
+      "wave": 2,
+      "status": "implementada",
+      "report": null
+    },
+    "F03": {
+      "name": "Ingressos, vagas e gateway",
+      "wave": 3,
+      "status": "implementada",
+      "report": null
+    },
+    "F04": {
+      "name": "API de parceiros",
+      "wave": 4,
+      "status": "spec",
+      "report": null
+    },
+    "F05": {
+      "name": "Vitrine e meus ingressos",
+      "wave": 4,
+      "status": "spec",
+      "report": null
+    },
+    "F06": {
+      "name": "Gestão do organizador",
+      "wave": 4,
+      "status": "spec",
+      "report": null
+    }
+  }
+}

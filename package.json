@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "tsx src/main.ts",
-    "test": "vitest run",
+    "test": "tsc --noEmit && vitest run",
     "up": "bash scripts/up.sh",
     "down": "bash scripts/down.sh",
     "gates": "bash scripts/gates.sh"

@@ -1,3 +1,4 @@
+// Painel, check-in e cancelamento leem o mesmo domínio dos ingressos.
 import type { User } from '../auth/session.js'
 import type { EventRecord } from '../events/service.js'
 import { EVENT_STATUS_LABEL } from '../events/service.js'

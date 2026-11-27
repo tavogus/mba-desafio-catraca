@@ -55,9 +55,11 @@ Cada pasta de feature tem `spec.md`, `plan.md`, `contract.md` e `reports/`.
 
 ### Wave paralela
 
-A wave 4 (F04, F05 e F06) foi implementada em branches separadas e integrada por pull requests:
+A wave 4 (F04, F05 e F06) foi implementada em branches separadas, ao mesmo tempo, e integrada por pull requests:
 
-- (links dos PRs entram aqui depois do merge)
+- [API de parceiros](https://github.com/tavogus/mba-desafio-catraca/pull/1)
+- [Vitrine e meus ingressos](https://github.com/tavogus/mba-desafio-catraca/pull/2)
+- [Gestão do organizador](https://github.com/tavogus/mba-desafio-catraca/pull/3)
 
 ## Decisões
 

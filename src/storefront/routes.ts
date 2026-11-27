@@ -1,3 +1,4 @@
+// Sem vaga, a frase Ingressos esgotados substitui o formulário de compra.
 import type { FastifyInstance } from 'fastify'
 import { currentUser } from '../auth/guard.js'
 import type { User } from '../auth/session.js'
